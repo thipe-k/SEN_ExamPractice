@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B931722-7CAC-4892-9EFF-E6B954FE9D85}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diary_Management</RootNamespace>
+    <AssemblyName>Diary Management</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>14.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business Logic\Activity.cs" />
+    <Compile Include="Business Logic\AdHocMeeting.cs" />
+    <Compile Include="Business Logic\CustomExceptions\NotComparableException.cs" />
+    <Compile Include="Business Logic\Diary.cs" />
+    <Compile Include="Business Logic\IActivity.cs" />
+    <Compile Include="Business Logic\IDiaryOwner.cs" />
+    <Compile Include="Business Logic\Meeting.cs" />
+    <Compile Include="Business Logic\PerformanceEvaluation.cs" />
+    <Compile Include="Business Logic\Person.cs" />
+    <Compile Include="Business Logic\Task.cs" />
+    <Compile Include="Business Logic\Team.cs" />
+    <Compile Include="Business Logic\TeamMeeting.cs" />
+    <Compile Include="Business Logic\Utility.cs" />
+    <Compile Include="Business Logic\WorkSchedule.cs" />
+    <Compile Include="Data Access\ActivityDB.cs" />
+    <Compile Include="Data Access\DBAccess.cs" />
+    <Compile Include="Data Access\PersonDB.cs" />
+    <Compile Include="Data Access\ScheduleDB.cs" />
+    <Compile Include="Data Access\TeamDB.cs" />
+    <Compile Include="Presentation\ActivityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ActivityForm.Designer.cs">
+      <DependentUpon>ActivityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\DiaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\DiaryForm.Designer.cs">
+      <DependentUpon>DiaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PersonMaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PersonMaintenanceForm.Designer.cs">
+      <DependentUpon>PersonMaintenanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PersonRolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PersonRolesForm.Designer.cs">
+      <DependentUpon>PersonRolesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PersonSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PersonSelectForm.Designer.cs">
+      <DependentUpon>PersonSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\TeamMaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\TeamMaintenanceForm.Designer.cs">
+      <DependentUpon>TeamMaintenanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\TeamSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\TeamSelectForm.Designer.cs">
+      <DependentUpon>TeamSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\ActivityForm.resx">
+      <DependentUpon>ActivityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\DiaryForm.resx">
+      <DependentUpon>DiaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PersonMaintenanceForm.resx">
+      <DependentUpon>PersonMaintenanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PersonRolesForm.resx">
+      <DependentUpon>PersonRolesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PersonSelectForm.resx">
+      <DependentUpon>PersonSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\TeamMaintenanceForm.resx">
+      <DependentUpon>TeamMaintenanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\TeamSelectForm.resx">
+      <DependentUpon>TeamSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
