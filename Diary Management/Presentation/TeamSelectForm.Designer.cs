@@ -49,6 +49,7 @@
             this.selectButton.TabIndex = 1;
             this.selectButton.Text = "Select";
             this.selectButton.UseVisualStyleBackColor = true;
+            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
             // cancelButton
             // 
@@ -58,6 +59,7 @@
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // TeamSelectForm
             // 
@@ -69,6 +71,7 @@
             this.Controls.Add(this.teamListBox);
             this.Name = "TeamSelectForm";
             this.Text = "TeamSelectForm";
+            this.Load += new System.EventHandler(this.TeamSelectForm_Load);
             this.ResumeLayout(false);
 
         }

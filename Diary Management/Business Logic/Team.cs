@@ -7,7 +7,7 @@ using Diary_Management.Data_Access;
 
 namespace Diary_Management.Business_Logic
 {
-    class Team : IDiaryOwner, IComparable
+    public class Team : IDiaryOwner, IComparable
     {
         private string identifier;
         private string teamName;
@@ -16,6 +16,8 @@ namespace Diary_Management.Business_Logic
         public string Identifier { get => identifier; set => identifier = value; }
         public string TeamName { get => teamName; set => teamName = value; }
         public string Schedule { get => schedule; set => schedule = value; }
+        public string DisplayName { get => $"{identifier} : {teamName}"; }
+        public IList<Team> GetTeams { get; set; }
 
         public int CompareTo(object obj)
         {
@@ -28,18 +30,31 @@ namespace Diary_Management.Business_Logic
             schedule = data["Schedule"].ToString();
         }
         public Team() { }
+        public Team(DataRow teamData) { Initialize(teamData); }
 
         public bool GetData()
         {
+            GetTeams = new List<Team>();
+            GetTeams.Clear();
             TeamDB teamDB = new TeamDB();
             DataTable data = teamDB.GetTeams(identifier, teamName, schedule);
-            if (data.Rows.Count > 1 || data.Rows.Count < 1)
+            if (data.Rows.Count < 1)
             {
                 return false;
             }
             else
             {
-                Initialize(data.Rows[0]);
+                if (data.Rows.Count > 1)
+                {
+                    foreach (DataRow teamData in data.Rows)
+                    {
+                        GetTeams.Add(new Team(teamData));
+                    }
+                }
+                else 
+                {
+                    Initialize(data.Rows[0]);
+                }
                 return true;
             }
         }

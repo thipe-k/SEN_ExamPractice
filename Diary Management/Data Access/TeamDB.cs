@@ -21,7 +21,7 @@ namespace Diary_Management.Data_Access
             {
                 using (SqlConnection con = dBAccess.DBConnection)
                 {
-                    string query = string.Format("SELECT * [dbo].[Team] WHERE [Identifier]= '{0}' OR [Name] = '{1}' OR [Schedule] = '{2}' ", data[0], data[1], data[2] );
+                    string query = string.Format("SELECT * FROM [dbo].[Team] WHERE [Identifier] = '{0}' OR [Name] = '{1}' OR [Schedule] = '{2}' ", data[0], data[1], data[2] );
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         using (SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd))
@@ -45,7 +45,7 @@ namespace Diary_Management.Data_Access
             {
                 using (SqlConnection con = dBAccess.DBConnection)
                 {
-                    string query = string.Format(" SELECT* FROM[Person] P INNER JOIN[Job] J ON J.Person = P.Identifier WHERE J.Team = '{0}' ", teamID);
+                    string query = string.Format(" SELECT * FROM [Person] P INNER JOIN[Job] J ON J.Person = P.Identifier WHERE J.Team = '{0}' ", teamID);
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         using (SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd))

@@ -81,11 +81,15 @@ namespace Diary_Management.Business_Logic
         private string GetOtherNameInials()
         {
             string[] temp = otherName.Split(' ');
-            string initials = temp[0].Substring(0, 1);
-            for (int i = 1; i < temp.Length; i++)
+            string initials = "";
+            foreach (string _name in temp)
             {
-                initials += $". {temp[i].Substring(0, 1)}";
+                if (_name.Length>1)
+                {
+                    initials += $". {_name.Substring(0, 1)}";
+                }
             }
+         
             return initials;
         }
         public IList<Person> GetPersons()

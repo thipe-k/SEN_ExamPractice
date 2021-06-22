@@ -22,9 +22,18 @@ namespace Diary_Management.Presentation
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            team.Identifier = teamIdField.Text;
+            team.TeamName = teamNameField.Text;
             if (team.GetData())
             {
-                FillForm();
+                if (team.GetTeams.Count > 1)
+                {
+                    TeamSelectForm selectForm = new TeamSelectForm();
+                }
+                else
+                {
+                   FillForm();
+                }
                 MemberGridFill(team.GetTeamMembers());
             }
             else
@@ -59,7 +68,6 @@ namespace Diary_Management.Presentation
             memberGrid.Columns.Add(memberName);
             memberGrid.Columns.Add(memberRole);
             memberGrid.DataSource = members;
-
         }
     }
 }
